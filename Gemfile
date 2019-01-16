@@ -41,6 +41,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.7.0'
+  gem 'guard-rspec', require: false
 end
 
 group :development do
