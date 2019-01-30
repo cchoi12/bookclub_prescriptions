@@ -20,6 +20,13 @@ RSpec.describe Project do
     task.mark_completed
     expect(project).to be_done
   end
+
+  it 'properly handles a blank project' do
+    expect(project.completed_velocity).to eq 0
+    expect(project.current_rate).to eq 0
+    expect(project.projected_days_remaining).to be_nan
+    expect(project).not_to be_on_schedule
+  end
 end
 
 describe 'estimates' do
@@ -50,7 +57,7 @@ describe 'estimates' do
   end
 
   it 'knows its project days remaining' do
-    expect(project.project_days_remaining).to eq 35
+    expect(project.projected_days_remaining).to eq 35
   end
 
   it 'knows if its not on schedule' do
